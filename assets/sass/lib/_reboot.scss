@@ -1,0 +1,70 @@
+
+// Reset box-sizing to border-box
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none; /* Elimina el subrayado */
+    color: inherit; /* Hereda el color del elemento padre */
+    font-weight: normal; /* Elimina el estilo en negrita (algunos navegadores lo aplican) */
+    font-size: inherit; /* Hereda el tamaño de fuente del padre */
+  }
+  
+  a:hover, a:focus {
+    text-decoration: none; /* Elimina el subrayado en hover y focus */
+    color: inherit; /* Mantiene el color en hover y focus */
+    outline: none; /* Elimina el contorno en el foco (focus) */
+  }
+// Remove margin and padding from all elements
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'pp_neue_montrealbook', sans-serif;
+}
+
+// Set default line height
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.25;
+}
+
+// Remove list styles
+ul,
+ol {
+    list-style: none;
+}
+
+// Remove default button styles
+button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+
