@@ -363,47 +363,51 @@
 
     <script>
         // Esperar a que se cargue el documento
-        document.addEventListener("DOMContentLoaded", function () {
-            gsap.registerPlugin(ScrollToPlugin); // Registrar el plugin
+document.addEventListener("DOMContentLoaded", function () {
+    // Verificar el ancho de la ventana
+    if (window.innerWidth > 1024) {
+        gsap.registerPlugin(ScrollToPlugin); // Registrar el plugin
 
-            const header = document.querySelector('.header'); // Seleccionar el encabezado
-            const contenidoProyecto = document.querySelector('.contenidoproyecto'); // Seleccionar el contenido
-            const menuproyecto = document.querySelector('.menuproyecto'); // Seleccionar el menú
-            const todosobre = document.querySelector('.todosobre'); // Seleccionar la sección "todo sobre"
+        const header = document.querySelector('.header'); // Seleccionar el encabezado
+        const contenidoProyecto = document.querySelector('.contenidoproyecto'); // Seleccionar el contenido
+        const menuproyecto = document.querySelector('.menuproyecto'); // Seleccionar el menú
+        const todosobre = document.querySelector('.todosobre'); // Seleccionar la sección "todo sobre"
 
-            // Evento de scroll solo en menuproyecto
-            menuproyecto.addEventListener('wheel', function (event) {
-                if (event.deltaY < 0) { // Si se está haciendo scroll hacia arriba
-                    gsap.to(window, {
-                        duration: 0.7,
-                        scrollTo: {
-                            y: header.offsetTop, // Desplazarse a la parte superior de 'header'
-                            offsetY: 0
-                        },
-                    });
-                }
-            });
-
-            // Evento de scroll en todosobre
-            todosobre.addEventListener('wheel', function (event) {
-                if (event.deltaY < 0 && todosobre.scrollTop === 0) { // Si se hace scroll hacia arriba y el scroll está en la parte superior
-                    gsap.to(window, {
-                        duration: 0.7,
-                        scrollTo: header.offsetTop // Desplazarse a la parte superior de 'header'
-                    });
-                }
-            });
-
-            // Evento de scroll en la ventana para desplazarse a contenido
-            window.addEventListener('wheel', function (event) {
-                if (event.deltaY > 0) { // Si se está haciendo scroll hacia abajo
-                    gsap.to(window, {
-                        duration: 0.7,
-                        scrollTo: contenidoProyecto.offsetTop // Desplazarse a la parte superior de 'contenidoproyecto'
-                    });
-                }
-            });
+        // Evento de scroll solo en menuproyecto
+        menuproyecto.addEventListener('wheel', function (event) {
+            if (event.deltaY < 0) { // Si se está haciendo scroll hacia arriba
+                gsap.to(window, {
+                    duration: 0.7,
+                    scrollTo: {
+                        y: header.offsetTop, // Desplazarse a la parte superior de 'header'
+                        offsetY: 0
+                    },
+                });
+            }
         });
+
+        // Evento de scroll en todosobre
+        todosobre.addEventListener('wheel', function (event) {
+            if (event.deltaY < 0 && todosobre.scrollTop === 0) { // Si se hace scroll hacia arriba y el scroll está en la parte superior
+                gsap.to(window, {
+                    duration: 0.7,
+                    scrollTo: header.offsetTop // Desplazarse a la parte superior de 'header'
+                });
+            }
+        });
+
+        // Evento de scroll en la ventana para desplazarse a contenido
+        window.addEventListener('wheel', function (event) {
+            if (event.deltaY > 0) { // Si se está haciendo scroll hacia abajo
+                gsap.to(window, {
+                    duration: 0.7,
+                    scrollTo: contenidoProyecto.offsetTop // Desplazarse a la parte superior de 'contenidoproyecto'
+                });
+            }
+        });
+    }
+});
+
     </script>
 
     <script src="../app/viga.js"></script>
