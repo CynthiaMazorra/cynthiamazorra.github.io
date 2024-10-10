@@ -145,7 +145,7 @@
                 <img src="../assets/images/mnad11.png" alt="Totem">
                 <video class="background-video" autoplay loop muted playsinline>
                     <source src="../assets/videos/vid0mnad.webm" type="video/webm">
-                   
+
                     Tu navegador no soporta el video.
                 </video>
                 <img src="../assets/images/mnad12.webp" alt="Multipurpose room">
@@ -158,18 +158,18 @@
             <div id="prototype" class="contenido-proyecto mnadproto article articleatt" style="padding-bottom: 12px;">
                 <video class="background-video" autoplay loop muted playsinline>
                     <source src="../assets/videos/vid1mnad.webm" type="video/webm">
-                    
+
                     Tu navegador no soporta el video.
                 </video>
                 <img src="../assets/images/mnad14.png" alt="Tab Bar">
                 <video class="background-video" autoplay loop muted playsinline>
                     <source src="../assets/videos/vid2mnad.webm" type="video/webm">
-                    
+
                     Tu navegador no soporta el video.
                 </video>
                 <video class="background-video" autoplay loop muted playsinline>
                     <source src="../assets/videos/vid3mnad.webm" type="video/webm">
-                    
+
                     Tu navegador no soporta el video.
                 </video>
                 <img src="../assets/images/mnad15.webp" alt="Notifications">
@@ -279,18 +279,18 @@
         <div id="prototypem" class="contenido-proyecto mnadproto articleatt" style="padding-bottom: 12px;">
             <video class="background-video" autoplay loop muted playsinline>
                 <source src="../assets/videos/vid1mnad.webm" type="video/webm">
-                
+
                 Tu navegador no soporta el video.
             </video>
             <img src="../assets/images/mnad14.png" alt="Tab Bar">
             <video class="background-video" autoplay loop muted playsinline>
                 <source src="../assets/videos/vid2mnad.webm" type="video/webm">
-                
+
                 Tu navegador no soporta el video.
             </video>
             <video class="background-video" autoplay loop muted playsinline>
                 <source src="../assets/videos/vid3mnad.webm" type="video/webm">
-                
+
                 Tu navegador no soporta el video.
             </video>
             <img src="../assets/images/mnad15.webp" alt="Notifications">
@@ -319,6 +319,52 @@
 
         </div>
     </section>
+
+    <script>
+        // Esperar a que se cargue el documento
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.registerPlugin(ScrollToPlugin); // Registrar el plugin
+
+            const header = document.querySelector('.header'); // Seleccionar el encabezado
+            const contenidoProyecto = document.querySelector('.contenidoproyecto'); // Seleccionar el contenido
+            const menuproyecto = document.querySelector('.menuproyecto'); // Seleccionar el menú
+            const todosobre = document.querySelector('.todosobre'); // Seleccionar la sección "todo sobre"
+
+            // Evento de scroll solo en menuproyecto
+            menuproyecto.addEventListener('wheel', function (event) {
+                if (event.deltaY < 0) { // Si se está haciendo scroll hacia arriba
+                    gsap.to(window, {
+                        duration: 0.7,
+                        scrollTo: {
+                            y: header.offsetTop, // Desplazarse a la parte superior de 'header'
+                            offsetY: 0
+                        },
+                    });
+                }
+            });
+
+            // Evento de scroll en todosobre
+            todosobre.addEventListener('wheel', function (event) {
+                if (event.deltaY < 0 && todosobre.scrollTop === 0) { // Si se hace scroll hacia arriba y el scroll está en la parte superior
+                    gsap.to(window, {
+                        duration: 0.7,
+                        scrollTo: header.offsetTop // Desplazarse a la parte superior de 'header'
+                    });
+                }
+            });
+
+            // Evento de scroll en la ventana para desplazarse a contenido
+            window.addEventListener('wheel', function (event) {
+                if (event.deltaY > 0) { // Si se está haciendo scroll hacia abajo
+                    gsap.to(window, {
+                        duration: 0.7,
+                        scrollTo: contenidoProyecto.offsetTop // Desplazarse a la parte superior de 'contenidoproyecto'
+                    });
+                }
+            });
+        });
+    </script>
+
     <script src="../app/mnad.js"></script>
 </body>
 
