@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('prototypem').innerHTML = newContent;
         document.getElementById('prototype').innerHTML = newContent;
     }
+    else{
+        console.log("is not safari")
+    }
     
     function updateHeaderText() {
         // Check if the screen width is less than 480px
